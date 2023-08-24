@@ -1,10 +1,14 @@
-import styles from './PostAdd.module.scss'
+import AddPostForm from "../../features/AddPostForm/AddPostForm";
+import { Row, Col } from "react-bootstrap";
 
 const PostAdd = () => {
     return (
-      <div className={styles.postadd}>
-        <h2>PostAdd</h2>
-      </div>
+      <Row className='justify-content-center'>
+        <Col xs='12' md='8' lg='8' className='mb-4 '>
+          <h2>Add post</h2>
+          <AddPostForm />
+        </Col>
+      </Row>
     );
 };
 
