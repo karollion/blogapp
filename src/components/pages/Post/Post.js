@@ -1,4 +1,3 @@
-import styles from './Post.module.scss'
 import { useState } from 'react';
 import { getPostById } from '../../../redux/postsRedux';
 import { useParams } from 'react-router';
@@ -14,12 +13,12 @@ const Post = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const  postId  = useParams();
-  const postData = useSelector(state => getPostById(state, postId.id));
+  const  {id}  = useParams();
+  const postData = useSelector(state => getPostById(state, id));
 
   const deletePost = e => {
     e.preventDefault();
-    dispatch(removePost(postId.id));
+    dispatch(removePost(id));
     handleClose();
   };
 

@@ -1,10 +1,15 @@
-import styles from './PostEdit.module.scss'
+import { Row, Col } from "react-bootstrap";
+import EditPostForm from '../../features/EditPostForm/EditPostForm';
 
 const PostEdit = () => {
+  
     return (
-      <div className={styles.postedit}>
-        <h2>PostEdit</h2>
-      </div>
+      <Row className='justify-content-center'>
+        <Col xs='12' md='8' lg='8' className='mb-4 '>
+          <h2>Edit post</h2>
+          <EditPostForm />
+        </Col>
+      </Row>
     );
 };
 

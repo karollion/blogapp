@@ -1,4 +1,3 @@
-import styles from './Home.module.scss'
 import AllPosts from '../../features/AllPosts/AllPosts';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
