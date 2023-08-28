@@ -36,7 +36,8 @@ const Post = () => {
           </div>
           <p><span className='fw-bold'>Author: </span>{postData.author}</p>
           <p><span className='fw-bold'>Published: </span>{postData.publishedDate}</p>
-          <p>{postData.content}</p>
+          {/* ponizszy zapis zeby React pozwolił na ostylowanie elementu */}
+          <p dangerouslySetInnerHTML={{ __html: postData.content }} />
         </Col>
       </Row>
       <Modal show={show} onHide={handleClose}>
