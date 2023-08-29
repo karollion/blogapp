@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import About from './components/pages/About/About';
+import Categories from './components/pages/Categories/Categories';
 import Home from './components/pages/Home/Home';
 import NotFound from './components/pages/NotFound/NotFound';
 import Post from './components/pages/Post/Post';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/post/add" element={<PostAdd />} />
         <Route path="/post/edit/:id" element={<PostEdit />} />
         <Route path="/about" element={<About />} />
+        <Route path="/categories" element={<Categories />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

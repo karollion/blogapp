@@ -52,7 +52,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formPublished">
-            <Form.Label>Published</Form.Label>
+            <Form.Label>Published</Form.Label><br/>
             <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} placeholder="Enter date" value={publishedDate}/>
             {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
           </Form.Group>
