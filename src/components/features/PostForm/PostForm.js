@@ -13,10 +13,17 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
-  const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
-  const handleSubmit = e => {
-    action({ title, author, publishedDate, shortDescription, content });
+  const { register, handleSubmit: validate, formState: { errors } } = useForm();
+  const [contentError, setContentError] = useState(false);
+  const [dateError, setDateError] = useState(false);
+
+  const handleSubmit = () => {
+    setContentError(!content)
+    setDateError(!publishedDate)
+    if(content && publishedDate) {
+      action({ title, author, publishedDate, shortDescription, content });
+    }
   };
  
   return (
@@ -47,6 +54,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           <Form.Group className="mb-3" controlId="formPublished">
             <Form.Label>Published</Form.Label>
             <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} placeholder="Enter date" value={publishedDate}/>
+            {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
           </Form.Group>
         </Col>
       </Row>
@@ -62,7 +70,8 @@ const PostForm = ({ action, actionText, ...props }) => {
 
       <Form.Group className="mb-3" controlId="formContent">
         <Form.Label>Main content</Form.Label>
-        <ReactQuill theme="snow" id="main-content" as="textarea" value={content} onChange={setContent} placeholder="Live a coment here." />;
+        <ReactQuill theme="snow" id="main-content" as="textarea" value={content} onChange={setContent} placeholder="Live a coment here." />
+        {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
       </Form.Group>
       <Button variant="primary" type="submit">
       {actionText}
