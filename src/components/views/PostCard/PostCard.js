@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { Card, Col } from 'react-bootstrap';
+import dateToStr from '../../../utils/dateToStr';
 
 const PostCard = (props) => {
     return (
@@ -8,7 +9,7 @@ const PostCard = (props) => {
         <Card className='p-3'>
           <h3>{props.title}</h3>
           <p><span className='fw-bold'>Author: </span>{props.author}</p>
-          <p><span className='fw-bold'>Published: </span>{props.publishedDate}</p>
+          <p><span className='fw-bold'>Published: </span>{dateToStr(props.publishedDate)}</p>
           <p>{props.shortDescription}</p>
           <Button variant="primary" as={Link} to={"/post/" + props.id}>Read more</Button>
         </Card>

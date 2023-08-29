@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { getPostById } from '../../../redux/postsRedux';
+import { removePost } from '../../../redux/postsRedux';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 import { Row, Col, Button, Modal } from 'react-bootstrap';
-import { removePost } from '../../../redux/postsRedux';
+import dateToStr from '../../../utils/dateToStr';
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Post = () => {
             </div>
           </div>
           <p><span className='fw-bold'>Author: </span>{postData.author}</p>
-          <p><span className='fw-bold'>Published: </span>{postData.publishedDate}</p>
+          <p><span className='fw-bold'>Published: </span>{dateToStr(postData.publishedDate)}</p>
           {/* ponizszy zapis zeby React pozwolił na ostylowanie elementu */}
           <p dangerouslySetInnerHTML={{ __html: postData.content }} />
         </Col>
