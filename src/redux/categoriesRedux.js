@@ -12,7 +12,7 @@ export const addCategory = payload => ({type: ADD_CATEGORY, payload});
 const categoriesReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_CATEGORY:
-      return [...statePart, ...action.payload];
+      return statePart.concat(action.payload);
     default:
       return statePart;
   };
