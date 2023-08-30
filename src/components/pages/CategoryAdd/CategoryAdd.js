@@ -30,7 +30,7 @@ const PostAdd = () => {
             onChange={e => setCategoryName(e.target.value)}
             type="text" placeholder="Enter category"
           />
-          {errors.title && <small className="d-block form-text text-danger mt-2">Name is too short (min is 3)</small>}
+          {errors.categoryName && <small className="d-block form-text text-danger mt-2">Name is too short (min is 3)</small>}
           </Form.Group>
           <Button variant="primary" type="submit">
             Add
