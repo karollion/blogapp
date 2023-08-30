@@ -14,7 +14,7 @@ const PostAdd = () => {
 
   const handleSubmit = () => {
     dispatch(addCategory( categoryName ));
-    navigate('/');
+    navigate('/Categories');
   };
 
   return (
